@@ -1,23 +1,30 @@
-def print_n_primes(n):
-    primes = []
-    sieve = [True] * (n * 10)  # Using a larger sieve to ensure we have enough primes
-
-    # Mark 0 and 1 as non-prime
+def isPrime(x):
+        if x < 2:
+            return False
+        for i in range(2, int(x**0.5) + 1):
+            if x % i == 0:
+                return False
+        return True
+def countPrimes(n):
+    sieve = [True] * (n+1)
     sieve[0] = sieve[1] = False
 
-    for i in range(2, int(n * 10 ** 0.5) + 1):
-        if sieve[i]:
-            for j in range(i * i, n * 10, i):
-                sieve[j] = False
+    p = 2
+    while p**2 <= n:
+        if sieve[p]:
+            for i in range(p**2, n+1, p):
+                sieve[i] = False
+        p += 1
 
-    # Collect the prime numbers
-    for i, is_prime in enumerate(sieve):
-        if is_prime:
-            primes.append(i)
-            if len(primes) == n:
-                break
+    count = sum(sieve)
+    return count
 
-    # Print the prime numbers
-    for prime in primes:
-        print(prime)
-print_n_primes(20)
+n, m  = (int(j) for j in input().split())
+count = countPrimes(n)
+print(count)
+for i in range(m):
+    aa = int(input())
+    if isPrime(aa):
+        print(1)
+    else:
+        print(0)
