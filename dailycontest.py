@@ -37,30 +37,13 @@ def primeFactors(n):
 
     return factors
 
-    
-'''def prime_factors(n):
-    sieve = [0] * (n + 1)
-    prime_factors = []
-
-    for i in range(2, n + 1):
-        if sieve[i] == 0:  # i is a prime number
-            for j in range(i, n + 1, i):
-                if sieve[j] == 0:  # j has not been marked yet
-                    sieve[j] = i  # mark j with i as its smallest prime factor
-
-    while n > 1:
-        prime_factor = sieve[n]
-        prime_factors.append(prime_factor)
-        n //= prime_factor
-
-    return prime_factors'''
 
 n = int(input())
 while n!=-1:
     s = ''
     pf = primeFactors(n)
     l = ' '.join([str(p) for p in pf])
-    print(l.strip())
+    print(l+' ')
     n = int(input())
 
     

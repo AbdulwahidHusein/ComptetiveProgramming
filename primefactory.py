@@ -42,8 +42,5 @@ while True:
     num = int(input())
     if num == -1:
         break
-    inputs.append(num)
-    
-for num in inputs:
-    factors = primeFactors(num)
-    print(factors.strip())
+    print(''.join(primeFactors(num))+' ')
+
