@@ -3,7 +3,7 @@
 #include<vector>
 using namespace std;
 const int MAX =  20000000;
-
+int tw[100000];
 vector<bool> SIEVE(int max){
     vector<bool> sieve;
     for (int j=0; j<max; j++){
@@ -24,16 +24,20 @@ return sieve;
 
 
 int main(){
+    int p = 0;
+    vector<bool> sieve_array = SIEVE(MAX);
+    for (int l=0; l<100010; l++){
+        if (sieve_array[l] && sieve_array[l+2]){
+            tw[p] = l;
+            tw[p+1] = l+2;
+            p+=2;
+        }
+    }
     int n;
     int count = 0;
     int index = 0;
     while(cin>>n){
-        vector<bool> sieve_array = SIEVE(n);
-        while (count<n){
-            if (sieve_array[index] && sieve_array[index+2])count++;
-            index++;
-        }
-        cout<<"("<<index-1<<", "<<index+1<<")"<<endl;
+        cout<<"("<<tw[index-1]<<", "<<tw[index]<<")"<<endl;
         index=0;
         count=0;
     }
