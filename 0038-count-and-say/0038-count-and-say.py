@@ -4,7 +4,7 @@ class Solution:
         if n == 1:
             return "1"
 
-        # Generate subsequent terms
+    
         prev_term = "1"
         for _ in range(2, n + 1):
             next_term = ""
