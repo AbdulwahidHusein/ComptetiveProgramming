@@ -3,6 +3,7 @@ class Solution:
         str_arr = [ch for ch in s]
         vowels = ['a','e','i','o','u', "A","E","I","O","U"]
         left = 0
+        
         right = len(s)-1
         while left < right:
             sleft, sright = s[left], s[right] 
